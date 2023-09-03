@@ -3,6 +3,7 @@ import Cart from "./components/Cart/Cart"
 import Hero from "./components/Hero/Hero"
 import Header from "./components/Layout/Header"
 import Products from "./components/Products/Products"
+import CartProvider from "./context/CartProvider"
 
 function App() {
 
@@ -18,12 +19,12 @@ function App() {
   }
 
   return (
-    <>
+    <CartProvider>
       {cartIsShow && <Cart onHideCart={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <Hero />
       <Products onHideCart={hideCartHandler} />
-    </>
+    </CartProvider>
   )
 }
 

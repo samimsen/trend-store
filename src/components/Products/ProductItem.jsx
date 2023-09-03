@@ -4,6 +4,7 @@ import "./ProductItem.css";
 
 const ProductItem = ({ product }) => {
     const { name, description, img, price } = product;
+    
     return (
         <Card>
             <img src={img} alt={name} />

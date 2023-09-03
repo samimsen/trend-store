@@ -3,12 +3,13 @@ import CartIcon from "../Cart/CartIcon";
 import "./headerCartButton.css"
 import { CartContext } from "../../context/CartProvider";
 
+
 const HeaderCartButton = ({ onShowCart }) => {
 
     const cartContext = useContext(CartContext)
 
-    const totalItemInCart = cartContext.item.reduce((accumulator, currentItem) => {
-        accumulator + currentItem.amount
+    const totalItemInCart = cartContext.items.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.amount
     }, 0)
 
     return (

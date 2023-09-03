@@ -1,6 +1,7 @@
 import "./Cart.css";
 import CartItem from "./CartItem";
 import products from "../../productData"
+import Offcanvas from "../UI/Offcanvas";
 
 const Cart = ({ onHideCart }) => {
 
@@ -11,8 +12,7 @@ const Cart = ({ onHideCart }) => {
     )
 
     return (
-        <div className="offcanvas">
-            <div className="content">
+            <Offcanvas onHideCart={onHideCart}>
                 <div className="cart-head">
                     <h2>Sepetim</h2>
                     <a href="/" className="cart-close" onClick={onHideCart}>X</a>
@@ -26,8 +26,7 @@ const Cart = ({ onHideCart }) => {
                     <button className='cart-order'>Sipariş Ver</button>
                     <button className='cart-clear'>Temizle</button>
                 </div>
-            </div>
-        </div>
+            </Offcanvas>
     )
 }
 

@@ -1,6 +1,11 @@
+import { useContext } from "react"
 import "./cartItem.css"
+import { CartContext } from "../../context/CartProvider"
 
 const CartItem = ({ product }) => {
+
+    const cartContext = useContext(CartContext)
+
     return (
         <li className="cart-item">
             <div className="cart-item-img">
@@ -11,10 +16,13 @@ const CartItem = ({ product }) => {
                     <b>{product.name}</b>
                     <div>
                         <span>{product.price}₺</span>
-                        <span> x{product.amount}</span>
+                        <span className="cart-item-amount"> x {product.amount}</span>
                     </div>
                 </div>
-                <a className="cart-item-remove" href="/">x</a>
+                <a className="cart-item-remove" href="/" onClick={(e) => {
+                    e.preventDefault(),
+                    cartContext.removeItem(product.id)
+                }}>x</a>
             </div>
         </li>
     )
